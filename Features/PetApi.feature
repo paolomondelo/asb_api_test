@@ -18,7 +18,7 @@ Feature: Pet API CRUD
     Then the response status code should be 200
     And the response should contain pet id 8073 and name "bulldog"
 
-    When I send a DELETE request to delete the pet with id 8073
+    When I send a DELETE request to delete the pet using the same pet id
     Then the response status code should be 200
     And the delete response should contain pet id 8073
 
@@ -45,7 +45,7 @@ Feature: Pet API CRUD
   Scenario: Delete pet using DELETE /pet/{petid} and response code should be 200
     Given a new pet with id 8073 and name "shihtzu"
     When I send a POST request to create the pet
-    And I send a DELETE request to delete the pet with id 8073
+    And I send a DELETE request to delete the pet using the same pet id
     Then the response status code should be 200
     And the delete response should contain pet id 8073
 
@@ -54,7 +54,8 @@ Feature: Pet API CRUD
     Given a new pet with id 8073 and name "shihtzu"
     When I send a POST request to create the pet
     And I send a DELETE request to delete the pet using the same pet id
-    And I send a DELETE request to delete the pet using the same pet id
+    Then the response status code should be 200
+    When I send another DELETE request to delete the pet using the same pet id
     Then the response status code should be 404
    
     
@@ -72,5 +73,13 @@ Feature: Pet API CRUD
       | 3434 | chowchow | 200                |
       | 6445 | beagle   | 200                |
       | 2324 | bulldog  | 200                |
+      | 1111 | lion     | 200                |
+      | 2222 | tiger    | 200                |
+      | 3333 | bear     | 200                |
+      | 4444 | wolf     | 200                |
+      | 5555 | fox      | 200                |
+ 
+ 
 
     
+

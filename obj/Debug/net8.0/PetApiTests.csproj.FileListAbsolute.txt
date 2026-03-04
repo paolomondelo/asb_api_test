@@ -101,6 +101,7 @@ C:\Users\paolo\Desktop\Test Automation Demo\asb_api_test_c#_reqnroll_nunit\obj\D
 C:\Users\paolo\Desktop\Test Automation Demo\asb_api_test_c#_reqnroll_nunit\obj\Debug\net8.0\PetApiTests.AssemblyInfoInputs.cache
 C:\Users\paolo\Desktop\Test Automation Demo\asb_api_test_c#_reqnroll_nunit\obj\Debug\net8.0\PetApiTests.AssemblyInfo.cs
 C:\Users\paolo\Desktop\Test Automation Demo\asb_api_test_c#_reqnroll_nunit\obj\Debug\net8.0\PetApiTests.csproj.CoreCompileInputs.cache
+C:\Users\paolo\Desktop\Test Automation Demo\asb_api_test_c#_reqnroll_nunit\obj\Debug\net8.0\PetApiTests.sourcelink.json
 C:\Users\paolo\Desktop\Test Automation Demo\asb_api_test_c#_reqnroll_nunit\obj\Debug\net8.0\PetApiTe.ECA7421A.Up2Date
 C:\Users\paolo\Desktop\Test Automation Demo\asb_api_test_c#_reqnroll_nunit\obj\Debug\net8.0\PetApiTests.dll
 C:\Users\paolo\Desktop\Test Automation Demo\asb_api_test_c#_reqnroll_nunit\obj\Debug\net8.0\refint\PetApiTests.dll

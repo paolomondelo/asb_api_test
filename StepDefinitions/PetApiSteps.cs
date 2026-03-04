@@ -47,17 +47,24 @@ public class PetApiSteps : IDisposable
         await CapturePetOrErrorAsync();
     }
 
-    [When(@"I send a DELETE request to delete the pet with id (.*)")]
-    public async Task WhenISendADeleteRequestToDeleteThePetWithId(long id)
-    {
-        _lastResponse = await _petApiPage.DeletePetAsync(id);
-        await CapturePetOrErrorAsync();
-    }
-
-    [When(@"I send a DELETE request to delete the pet using the same pet id")]
+    [When("I send a DELETE request to delete the pet using the same pet id")]
     public async Task WhenISendADeleteRequestToDeleteThePetUsingTheSamePetId()
     {
         _lastResponse = await _petApiPage.DeletePetAsync(_currentPetId);
+        await CapturePetOrErrorAsync();
+    }
+
+    [When("I send another DELETE request to delete the pet using the same pet id")]
+    public async Task WhenISendAnotherDeleteRequestToDeleteThePetUsingTheSamePetId()
+    {
+        _lastResponse = await _petApiPage.DeletePetAsync(_currentPetId);
+        await CapturePetOrErrorAsync();
+    }
+
+    [When("I send a DELETE request to delete the pet with id {int}")]
+    public async Task WhenISendADeleteRequestToDeleteThePetWithId(int id)
+    {
+        _lastResponse = await _petApiPage.DeletePetAsync(id);
         await CapturePetOrErrorAsync();
     }
 

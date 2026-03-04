@@ -1,0 +1,15 @@
+{
+  "[gherkin]": {
+    "editor.formatOnSave": false
+  },
+  "reqnroll.bindingAssemblies": [
+    "${workspaceFolder}/bin/Debug/net8.0/PetApiTests.dll"
+  ],
+  "reqnroll.bindingSearchPattern": "**/*.cs",
+  "BDD-Guardian.StepDefinitionPaths": [
+    "${workspaceFolder}/StepDefinitions"
+  ],
+  "BDD-Guardian.BindingPaths": [
+    "${workspaceFolder}/bin/Debug/net8.0"
+  ]
+}

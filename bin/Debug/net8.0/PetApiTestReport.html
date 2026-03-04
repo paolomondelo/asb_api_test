@@ -37,74 +37,21 @@
 <body>
 <header>
   <h1>Pet API Test Report</h1>
-  <p>Generated at 2026-03-04 16:38:32Z &middot; Total scenarios: 6</p>
+  <p>Generated at 2026-03-04 18:28:43Z &middot; Total scenarios: 1</p>
 </header>
 <main>
   <section class="summary">
     <div class="card">
       <div class="card-title">Total scenarios</div>
-      <div class="card-value">6</div>
+      <div class="card-value">1</div>
     </div>
     <div class="card">
       <div class="card-title">Passed</div>
-      <div class="card-value" style="color:#4ade80;">6</div>
+      <div class="card-value" style="color:#4ade80;">1</div>
     </div>
     <div class="card">
       <div class="card-title">Failed</div>
       <div class="card-value" style="color:#fca5a5;">0</div>
-    </div>
-  </section>
-  <section class="scenario">
-    <div class="scenario-header">
-      <div class="scenario-title">Create pet using POST /pet and response code should be 200</div>
-      <div class="scenario-meta">
-        <span class="tag">pet</span>
-        <span class="tag">post</span>
-        <span class="tag">smoke</span>
-        <span>881 ms</span>
-        <span class="status-pill status-passed">PASSED</span>
-      </div>
-    </div>
-    <div class="scenario-body">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:80px;">Step</th>
-            <th>Description</th>
-            <th style="width:90px;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Given</td>
-            <td>
-              a new pet with id 8073 and name &quot;shihtzu&quot;
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>When</td>
-            <td>
-              I send a POST request to create the pet
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>Then</td>
-            <td>
-              the response status code should be 200
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>Then</td>
-            <td>
-              the response should contain pet id 8073 and name &quot;shihtzu&quot;
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </section>
   <section class="scenario">
@@ -114,7 +61,7 @@
         <span class="tag">pet</span>
         <span class="tag">post</span>
         <span class="tag">smoke</span>
-        <span>616 ms</span>
+        <span>894 ms</span>
         <span class="status-pill status-passed">PASSED</span>
       </div>
     </div>
@@ -268,215 +215,10 @@
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-  <section class="scenario">
-    <div class="scenario-header">
-      <div class="scenario-title">Delete pet twice using DELETE /pet/{petid} and response code of second delete should be 404</div>
-      <div class="scenario-meta">
-        <span class="tag">delete</span>
-        <span class="tag">pet</span>
-        <span class="tag">smoke</span>
-        <span>1.0 s</span>
-        <span class="status-pill status-passed">PASSED</span>
-      </div>
-    </div>
-    <div class="scenario-body">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:80px;">Step</th>
-            <th>Description</th>
-            <th style="width:90px;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
           <tr>
             <td>Given</td>
             <td>
-              a new pet with id 8073 and name &quot;shihtzu&quot;
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>When</td>
-            <td>
-              I send a POST request to create the pet
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>When</td>
-            <td>
-              I send a DELETE request to delete the pet using the same pet id
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>When</td>
-            <td>
-              I send a DELETE request to delete the pet using the same pet id
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>Then</td>
-            <td>
-              the response status code should be 404
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-  <section class="scenario">
-    <div class="scenario-header">
-      <div class="scenario-title">Delete pet using DELETE /pet/{petid} and response code should be 200</div>
-      <div class="scenario-meta">
-        <span class="tag">delete</span>
-        <span class="tag">pet</span>
-        <span class="tag">smoke</span>
-        <span>821 ms</span>
-        <span class="status-pill status-passed">PASSED</span>
-      </div>
-    </div>
-    <div class="scenario-body">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:80px;">Step</th>
-            <th>Description</th>
-            <th style="width:90px;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Given</td>
-            <td>
-              a new pet with id 8073 and name &quot;shihtzu&quot;
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>When</td>
-            <td>
-              I send a POST request to create the pet
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>When</td>
-            <td>
-              I send a DELETE request to delete the pet with id 8073
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>Then</td>
-            <td>
-              the response status code should be 200
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>Then</td>
-            <td>
-              the delete response should contain pet id 8073
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-  <section class="scenario">
-    <div class="scenario-header">
-      <div class="scenario-title">Get pet using GET /pet/{petid} and response code should be 200</div>
-      <div class="scenario-meta">
-        <span class="tag">get</span>
-        <span class="tag">pet</span>
-        <span class="tag">smoke</span>
-        <span>770 ms</span>
-        <span class="status-pill status-passed">PASSED</span>
-      </div>
-    </div>
-    <div class="scenario-body">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:80px;">Step</th>
-            <th>Description</th>
-            <th style="width:90px;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Given</td>
-            <td>
-              a new pet with id 8073 and name &quot;shihtzu&quot;
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>When</td>
-            <td>
-              I send a POST request to create the pet
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>When</td>
-            <td>
-              I send a GET request to retrieve the pet by id 8073
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>Then</td>
-            <td>
-              the response status code should be 200
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-          <tr>
-            <td>Then</td>
-            <td>
-              the response should contain pet id 8073 and name &quot;shihtzu&quot;
-            </td>
-            <td><span class="step-status step-status-passed">Passed</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-  <section class="scenario">
-    <div class="scenario-header">
-      <div class="scenario-title">Happy path CRUD for a single pet</div>
-      <div class="scenario-meta">
-        <span class="tag">crud</span>
-        <span class="tag">pet</span>
-        <span class="tag">smoke</span>
-        <span>1.5 s</span>
-        <span class="status-pill status-passed">PASSED</span>
-      </div>
-    </div>
-    <div class="scenario-body">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:80px;">Step</th>
-            <th>Description</th>
-            <th style="width:90px;">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Given</td>
-            <td>
-              a new pet with id 8073 and name &quot;shihtzu&quot;
+              a new pet with id 1111 and name &quot;lion&quot;
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
@@ -497,14 +239,21 @@
           <tr>
             <td>Then</td>
             <td>
-              the response should contain pet id 8073 and name &quot;shihtzu&quot;
+              the response should contain pet id 1111 and name &quot;lion&quot;
+            </td>
+            <td><span class="step-status step-status-passed">Passed</span></td>
+          </tr>
+          <tr>
+            <td>Given</td>
+            <td>
+              a new pet with id 2222 and name &quot;tiger&quot;
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
           <tr>
             <td>When</td>
             <td>
-              I send a PUT request to update the pet name to &quot;bulldog&quot;
+              I send a POST request to create the pet
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
@@ -518,14 +267,21 @@
           <tr>
             <td>Then</td>
             <td>
-              the response should contain pet id 8073 and name &quot;bulldog&quot;
+              the response should contain pet id 2222 and name &quot;tiger&quot;
+            </td>
+            <td><span class="step-status step-status-passed">Passed</span></td>
+          </tr>
+          <tr>
+            <td>Given</td>
+            <td>
+              a new pet with id 3333 and name &quot;bear&quot;
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
           <tr>
             <td>When</td>
             <td>
-              I send a GET request to retrieve the pet by id 8073
+              I send a POST request to create the pet
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
@@ -539,14 +295,21 @@
           <tr>
             <td>Then</td>
             <td>
-              the response should contain pet id 8073 and name &quot;bulldog&quot;
+              the response should contain pet id 3333 and name &quot;bear&quot;
+            </td>
+            <td><span class="step-status step-status-passed">Passed</span></td>
+          </tr>
+          <tr>
+            <td>Given</td>
+            <td>
+              a new pet with id 4444 and name &quot;wolf&quot;
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
           <tr>
             <td>When</td>
             <td>
-              I send a DELETE request to delete the pet with id 8073
+              I send a POST request to create the pet
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
@@ -560,28 +323,35 @@
           <tr>
             <td>Then</td>
             <td>
-              the delete response should contain pet id 8073
+              the response should contain pet id 4444 and name &quot;wolf&quot;
+            </td>
+            <td><span class="step-status step-status-passed">Passed</span></td>
+          </tr>
+          <tr>
+            <td>Given</td>
+            <td>
+              a new pet with id 5555 and name &quot;fox&quot;
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
           <tr>
             <td>When</td>
             <td>
-              I send a GET request to retrieve the pet by id 8073
+              I send a POST request to create the pet
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
           <tr>
             <td>Then</td>
             <td>
-              the response status code should be 404
+              the response status code should be 200
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>
           <tr>
             <td>Then</td>
             <td>
-              the response should contain error message &quot;Pet not found&quot;
+              the response should contain pet id 5555 and name &quot;fox&quot;
             </td>
             <td><span class="step-status step-status-passed">Passed</span></td>
           </tr>

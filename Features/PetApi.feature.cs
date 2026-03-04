@@ -116,38 +116,42 @@ namespace PetApiTests.Features
                     "should contain pet id 8073 and name \"bulldog\"\r\n\r\n    When I send a GET request t" +
                     "o retrieve the pet by id 8073\r\n    Then the response status code should be 200\r\n" +
                     "    And the response should contain pet id 8073 and name \"bulldog\"\r\n\r\n    When I" +
-                    " send a DELETE request to delete the pet with id 8073\r\n    Then the response sta" +
-                    "tus code should be 200\r\n    And the delete response should contain pet id 8073\r\n" +
-                    "\r\n    When I send a GET request to retrieve the pet by id 8073\r\n    Then the res" +
-                    "ponse status code should be 404\r\n    And the response should contain error messa" +
-                    "ge \"Pet not found\"\r\n\r\n  @post @pet @smoke\r\n  Scenario: Create pet using POST /pe" +
-                    "t and response code should be 200\r\n    Given a new pet with id 8073 and name \"sh" +
-                    "ihtzu\"\r\n    When I send a POST request to create the pet\r\n    Then the response " +
-                    "status code should be 200\r\n    And the response should contain pet id 8073 and n" +
-                    "ame \"shihtzu\"\r\n\r\n  @get @pet @smoke\r\n  Scenario: Get pet using GET /pet/{petid} " +
-                    "and response code should be 200\r\n    Given a new pet with id 8073 and name \"shih" +
-                    "tzu\"\r\n    When I send a POST request to create the pet\r\n    And I send a GET req" +
-                    "uest to retrieve the pet by id 8073\r\n    Then the response status code should be" +
-                    " 200\r\n    And the response should contain pet id 8073 and name \"shihtzu\"\r\n\r\n  @d" +
-                    "elete @pet @smoke\r\n  Scenario: Delete pet using DELETE /pet/{petid} and response" +
-                    " code should be 200\r\n    Given a new pet with id 8073 and name \"shihtzu\"\r\n    Wh" +
-                    "en I send a POST request to create the pet\r\n    And I send a DELETE request to d" +
-                    "elete the pet with id 8073\r\n    Then the response status code should be 200\r\n   " +
-                    " And the delete response should contain pet id 8073\r\n\r\n  @delete @pet @smoke\r\n  " +
-                    "Scenario: Delete pet twice using DELETE /pet/{petid} and response code of second" +
-                    " delete should be 404\r\n    Given a new pet with id 8073 and name \"shihtzu\"\r\n    " +
-                    "When I send a POST request to create the pet\r\n    And I send a DELETE request to" +
-                    " delete the pet using the same pet id\r\n    And I send a DELETE request to delete" +
-                    " the pet using the same pet id\r\n    Then the response status code should be 404\r" +
-                    "\n   \r\n    \r\n  @post @pet @smoke\r\n  Scenario Outline: Create pet using POST /pet " +
-                    "and validate the correct response codes\r\n    Given a new pet with id <id> and na" +
-                    "me \"<name>\"\r\n    When I send a POST request to create the pet\r\n    Then the resp" +
-                    "onse status code should be <expectedStatusCode>\r\n    And the response should con" +
-                    "tain pet id <id> and name \"<name>\"\r\n\r\n    Examples:\r\n      | id   | name     | e" +
-                    "xpectedStatusCode |\r\n      | 8073 | shihtzu  | 200                |\r\n      | 999" +
-                    "9 | poodle   | 200                |\r\n      | 3434 | chowchow | 200              " +
-                    "  |\r\n      | 6445 | beagle   | 200                |\r\n      | 2324 | bulldog  | 2" +
-                    "00                |\r\n\r\n    \r\n", global::Io.Cucumber.Messages.Types.SourceMediaType.TEXT_X_CUCUMBER_GHERKIN_PLAIN);
+                    " send a DELETE request to delete the pet using the same pet id\r\n    Then the res" +
+                    "ponse status code should be 200\r\n    And the delete response should contain pet " +
+                    "id 8073\r\n\r\n    When I send a GET request to retrieve the pet by id 8073\r\n    The" +
+                    "n the response status code should be 404\r\n    And the response should contain er" +
+                    "ror message \"Pet not found\"\r\n\r\n  @post @pet @smoke\r\n  Scenario: Create pet using" +
+                    " POST /pet and response code should be 200\r\n    Given a new pet with id 8073 and" +
+                    " name \"shihtzu\"\r\n    When I send a POST request to create the pet\r\n    Then the " +
+                    "response status code should be 200\r\n    And the response should contain pet id 8" +
+                    "073 and name \"shihtzu\"\r\n\r\n  @get @pet @smoke\r\n  Scenario: Get pet using GET /pet" +
+                    "/{petid} and response code should be 200\r\n    Given a new pet with id 8073 and n" +
+                    "ame \"shihtzu\"\r\n    When I send a POST request to create the pet\r\n    And I send " +
+                    "a GET request to retrieve the pet by id 8073\r\n    Then the response status code " +
+                    "should be 200\r\n    And the response should contain pet id 8073 and name \"shihtzu" +
+                    "\"\r\n\r\n  @delete @pet @smoke\r\n  Scenario: Delete pet using DELETE /pet/{petid} and" +
+                    " response code should be 200\r\n    Given a new pet with id 8073 and name \"shihtzu" +
+                    "\"\r\n    When I send a POST request to create the pet\r\n    And I send a DELETE req" +
+                    "uest to delete the pet using the same pet id\r\n    Then the response status code " +
+                    "should be 200\r\n    And the delete response should contain pet id 8073\r\n\r\n  @dele" +
+                    "te @pet @smoke\r\n  Scenario: Delete pet twice using DELETE /pet/{petid} and respo" +
+                    "nse code of second delete should be 404\r\n    Given a new pet with id 8073 and na" +
+                    "me \"shihtzu\"\r\n    When I send a POST request to create the pet\r\n    And I send a" +
+                    " DELETE request to delete the pet using the same pet id\r\n    Then the response s" +
+                    "tatus code should be 200\r\n    When I send another DELETE request to delete the p" +
+                    "et using the same pet id\r\n    Then the response status code should be 404\r\n   \r\n" +
+                    "    \r\n  @post @pet @smoke\r\n  Scenario Outline: Create pet using POST /pet and va" +
+                    "lidate the correct response codes\r\n    Given a new pet with id <id> and name \"<n" +
+                    "ame>\"\r\n    When I send a POST request to create the pet\r\n    Then the response s" +
+                    "tatus code should be <expectedStatusCode>\r\n    And the response should contain p" +
+                    "et id <id> and name \"<name>\"\r\n\r\n    Examples:\r\n      | id   | name     | expecte" +
+                    "dStatusCode |\r\n      | 8073 | shihtzu  | 200                |\r\n      | 9999 | po" +
+                    "odle   | 200                |\r\n      | 3434 | chowchow | 200                |\r\n " +
+                    "     | 6445 | beagle   | 200                |\r\n      | 2324 | bulldog  | 200    " +
+                    "            |\r\n      | 1111 | lion     | 200                |\r\n      | 2222 | ti" +
+                    "ger    | 200                |\r\n      | 3333 | bear     | 200                |\r\n " +
+                    "     | 4444 | wolf     | 200                |\r\n      | 5555 | fox      | 200    " +
+                    "            |\r\n \r\n \r\n\r\n    \r\n\r\n", global::Io.Cucumber.Messages.Types.SourceMediaType.TEXT_X_CUCUMBER_GHERKIN_PLAIN);
         }
         
         private static global::Io.Cucumber.Messages.Types.GherkinDocument GherkinDocumentFunc()
@@ -155,284 +159,397 @@ namespace PetApiTests.Features
             return new global::Io.Cucumber.Messages.Types.GherkinDocument("Features/PetApi.feature", new global::Io.Cucumber.Messages.Types.Feature(new global::Io.Cucumber.Messages.Types.Location(1, new System.Nullable<long>(1)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "en-US", "Feature", "Pet API CRUD", "  In order to manage pets in the store\r\n  As an API tester\r\n  I want to create, u" +
                         "pdate, get and delete a pet", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.FeatureChild>(new global::Io.Cucumber.Messages.Types.FeatureChild[] {
                                 new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(7, new System.Nullable<long>(3)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(6, new System.Nullable<long>(3)), "@crud", "3595be22302e6d52b397d3698204f82b"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(6, new System.Nullable<long>(9)), "@pet", "f84fdd72b91a1953bf6d28bd3f3e47b5"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(6, new System.Nullable<long>(14)), "@smoke", "425f8d22a5aad95398b8d0d672e48bfd")}), "Scenario", "Happy path CRUD for a single pet", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(8, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "21cb9e951bc9395e86b666da5e8a3592"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(9, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "b96bcdb58f000452866ee79e0a969a34"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(10, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "8ec461b4323cda5295cd8534382342d7"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(11, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"shihtzu\"", null, null, "f5b3bbd4e00d955498ce4d7880f4e419"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(13, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a PUT request to update the pet name to \"bulldog\"", null, null, "617c3efb93b94c5884505aa714e7ed3a"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(14, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "f2084742262ca857954a7ae49c028881"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(15, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"bulldog\"", null, null, "56b4eef5a81eb252aa8d8624f545277a"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(17, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a GET request to retrieve the pet by id 8073", null, null, "bf8ff8756062505a881d447cbccfcefe"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(18, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "d6c5e2902b21cf55b2f1bcad6449a3d3"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(19, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"bulldog\"", null, null, "9b94f0b01c1c405b8d9f9a9819ae520e"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(21, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a DELETE request to delete the pet with id 8073", null, null, "a747904e3b09095d8d6e5a4679c91cbf"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(22, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "60e5ff54aaf4645bb9e962044688f261"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(23, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the delete response should contain pet id 8073", null, null, "a6752d144135085d8e89bdf15b2f371b"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(25, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a GET request to retrieve the pet by id 8073", null, null, "d1955eee2211b8589b5ad1a5c90c0124"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(26, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 404", null, null, "011d21f5db8ef454a552372961084df4"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(27, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain error message \"Pet not found\"", null, null, "653fed4582d2745899482af4da374b2e")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "045b5ce3ad1f735dac83f321eeb8fe0c")),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(6, new System.Nullable<long>(3)), "@crud", "7e4bb77ca31dd95c9d9bf5e3fe406e97"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(6, new System.Nullable<long>(9)), "@pet", "ce8657c6382aeb54bfef5d2016929e6a"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(6, new System.Nullable<long>(14)), "@smoke", "6ba0c2806db70352ac7ed7fbcb20e9d6")}), "Scenario", "Happy path CRUD for a single pet", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(8, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "0e612d93dd3eca57b38d4a4b6a16e026"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(9, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "376986eae659d55fa61a1591a5d6c33b"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(10, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "c1f867dcb5e49a5aa662654d581b3fc7"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(11, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"shihtzu\"", null, null, "84fbb3629d3ecf5f9fef6c6daa2cc349"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(13, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a PUT request to update the pet name to \"bulldog\"", null, null, "f67ec1b0f38ab854ad66e791dee37618"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(14, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "e1ba4813bbde5b55a08fc73c34e114ca"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(15, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"bulldog\"", null, null, "e9c2bfd85ef85d5f8d874f71c1418d4e"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(17, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a GET request to retrieve the pet by id 8073", null, null, "395703f957759752a7cdb97050ef1806"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(18, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "5eaf88db37e5685483c15f7676c43aae"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(19, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"bulldog\"", null, null, "16fd3ec58b182f508a11705c5001b4a3"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(21, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a DELETE request to delete the pet using the same pet id", null, null, "71e9b08621033954b66f428fd4838996"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(22, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "f592bf34f080555092df33191b966992"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(23, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the delete response should contain pet id 8073", null, null, "e4353e61efb7c05ea542f0a844f68214"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(25, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a GET request to retrieve the pet by id 8073", null, null, "6a1830273bcb5851a8d4b11a95fd7dd9"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(26, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 404", null, null, "ce15101562abdc599d52dff5c64828b1"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(27, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain error message \"Pet not found\"", null, null, "4526d31acb7d5855969ad587455890ef")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "d04d4b113e0ecd5393397bc6b5836fda")),
                                 new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(30, new System.Nullable<long>(3)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(29, new System.Nullable<long>(3)), "@post", "1ce19e264d945a5295f5e0d046cd902e"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(29, new System.Nullable<long>(9)), "@pet", "424af7a73b71c0509cc6d2393cca25d6"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(29, new System.Nullable<long>(14)), "@smoke", "bdfceabac363ec5c8cfe8b2eadb8c656")}), "Scenario", "Create pet using POST /pet and response code should be 200", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(31, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "d5904c8ed90d345495afcf8c360e0e71"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(32, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "1b9e8ba2c946cb549c53348a06081a72"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(33, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "9342c756374583579e8f3e3b1be39a93"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(34, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"shihtzu\"", null, null, "c3d9fb999db20d52b63b1f38e44bf82f")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "538af38fc7c486519a85e3330705d5ca")),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(29, new System.Nullable<long>(3)), "@post", "aedd8403025a2656a6e8698485a19e9e"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(29, new System.Nullable<long>(9)), "@pet", "2459a9e2dd857b50ae2db2eb64308864"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(29, new System.Nullable<long>(14)), "@smoke", "1e301f471e3e9050883d919403d2f597")}), "Scenario", "Create pet using POST /pet and response code should be 200", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(31, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "6f506ef44a422651b2459a92d01166b8"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(32, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "4eb11f6b98d18255939ec2dcd23c2ff9"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(33, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "881d03afaed0ce59864db30bdb8ac449"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(34, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"shihtzu\"", null, null, "b48e2065fc12155b828d765fbbc4b818")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "5db748fcf55c175ea43cd6fc17f48f31")),
                                 new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(37, new System.Nullable<long>(3)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(36, new System.Nullable<long>(3)), "@get", "444894c92ab79d5ea95acec5d21110c6"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(36, new System.Nullable<long>(8)), "@pet", "124a93d414740751a996d58201c8108b"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(36, new System.Nullable<long>(13)), "@smoke", "3268454190773c52b3b1ee2c95e1c022")}), "Scenario", "Get pet using GET /pet/{petid} and response code should be 200", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(38, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "1c597f6f19a8e35bb34a2d93b9f045a0"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(39, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "c70c83910d75d35a8f8423e276e07f50"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(40, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I send a GET request to retrieve the pet by id 8073", null, null, "2a7aecf0b7fb1d548195fde03d34a73a"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(41, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "7e8d69af7db67a5fb74548319db5ddb9"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(42, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"shihtzu\"", null, null, "e1672038919c735aa23b409dd4a4a9b1")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "dd688f1683ec4154b3c26834c45a2e89")),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(36, new System.Nullable<long>(3)), "@get", "ed762b349b00225d91a38011df02368f"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(36, new System.Nullable<long>(8)), "@pet", "44aa0e665217b551a294d547d666a4fb"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(36, new System.Nullable<long>(13)), "@smoke", "e2540e2b566cba5f9c16c069fdb511a4")}), "Scenario", "Get pet using GET /pet/{petid} and response code should be 200", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(38, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "5a4e3323b9b1fa51a8e5d483df3b22d8"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(39, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "8a7b3611c4398652bb6894af1bda5a43"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(40, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I send a GET request to retrieve the pet by id 8073", null, null, "4860722b91f4bb55baa971fcf2d02e93"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(41, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "d2d73a026055ad528865faf446f5e68a"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(42, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id 8073 and name \"shihtzu\"", null, null, "ef89281be440095890c4ce45887d084b")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "a261d2bfbe149553bc339330171b5d19")),
                                 new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(45, new System.Nullable<long>(3)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(44, new System.Nullable<long>(3)), "@delete", "a68e98361d552c50b028d4d02f990daf"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(44, new System.Nullable<long>(11)), "@pet", "f2d9d8e27680d05991ebeab5c7c06624"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(44, new System.Nullable<long>(16)), "@smoke", "38b1f91d7357755080598bea99c0abcf")}), "Scenario", "Delete pet using DELETE /pet/{petid} and response code should be 200", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(46, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "9ce7ede9bf879654828092535e25fbbd"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(47, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "e2abf6cb37a86f54a9187b34cb6e3c17"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(48, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I send a DELETE request to delete the pet with id 8073", null, null, "1f961753f38a465ea5dfc487344ac2e1"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(49, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "1581a5b8c5ecfa5ba93f724d800b9165"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(50, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the delete response should contain pet id 8073", null, null, "9182d9d6be2f9153a3795f49b4024019")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "fac71868230cd05eb5d78f9ab11c98d1")),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(44, new System.Nullable<long>(3)), "@delete", "960c3e6285abe855b786328b51b05e22"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(44, new System.Nullable<long>(11)), "@pet", "906126b0c64d6e519e044100dd97dea4"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(44, new System.Nullable<long>(16)), "@smoke", "bdf26d602a2c1651a921e57e6569caae")}), "Scenario", "Delete pet using DELETE /pet/{petid} and response code should be 200", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(46, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "a27945a24a193852854572d6d2799560"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(47, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "a6534ef8b97d725fae826d10ab5022ea"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(48, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I send a DELETE request to delete the pet using the same pet id", null, null, "0b08c6570d9e005c975e8a77254b66ac"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(49, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "c18d59c828de0452bf437d83fef69daa"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(50, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the delete response should contain pet id 8073", null, null, "58122f1c870c1a50933eea89eeeab0ad")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "8824c89f9195ef5a9a0147b9b0ac8566")),
                                 new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(53, new System.Nullable<long>(3)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(52, new System.Nullable<long>(3)), "@delete", "5e5c94b62b504b50b924a24ecb42f27f"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(52, new System.Nullable<long>(11)), "@pet", "928347bbafd6995ab3b02504a1e7b749"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(52, new System.Nullable<long>(16)), "@smoke", "ebd205095773585f93a99a32f05f2619")}), "Scenario", "Delete pet twice using DELETE /pet/{petid} and response code of second delete sho" +
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(52, new System.Nullable<long>(3)), "@delete", "5d73eaf2118b6e578b27a18748d97268"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(52, new System.Nullable<long>(11)), "@pet", "518b5bea78258453b52d3b1f75696c17"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(52, new System.Nullable<long>(16)), "@smoke", "a2e2fb9a7787055a85b33c0a95d59268")}), "Scenario", "Delete pet twice using DELETE /pet/{petid} and response code of second delete sho" +
                                             "uld be 404", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(54, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "2b628210c98e4553a0f1b84ee47b38c3"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(55, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "02463bd7f60a805c8779df3b4a55deed"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(56, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I send a DELETE request to delete the pet using the same pet id", null, null, "deeb67a0ddf3b85b97c2d82a60b4d0cc"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(57, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I send a DELETE request to delete the pet using the same pet id", null, null, "ffb7e0735984b05295183453a4d57852"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(58, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 404", null, null, "644f115d7e66315a9bec85e8823d6443")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "78f1cf80a9130d5898a58fc14035f800")),
-                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(62, new System.Nullable<long>(3)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(61, new System.Nullable<long>(3)), "@post", "74b9a76705c5bb5b96f11fedbd2e522d"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(61, new System.Nullable<long>(9)), "@pet", "3c6c130458353457803f42cffb92a3bb"),
-                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(61, new System.Nullable<long>(14)), "@smoke", "cce7c3083721f250a50429ae99f74b2c")}), "Scenario Outline", "Create pet using POST /pet and validate the correct response codes", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(63, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id <id> and name \"<name>\"", null, null, "e4cd9f7ca1fc0b539f8a4e713420c8cb"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(64, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "d1cca6b5cb0d8e5ab1b709e610279a50"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(65, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be <expectedStatusCode>", null, null, "a56e246f996f6a5799de17e772bc42c4"),
-                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(66, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id <id> and name \"<name>\"", null, null, "e521f55b55ff105796fa2ff284f7518f")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[] {
-                                                    new global::Io.Cucumber.Messages.Types.Examples(new global::Io.Cucumber.Messages.Types.Location(68, new System.Nullable<long>(5)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "Examples", "", "", new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(69, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
-                                                                        new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(69, new System.Nullable<long>(9)), "id"),
-                                                                        new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(69, new System.Nullable<long>(16)), "name"),
-                                                                        new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(69, new System.Nullable<long>(27)), "expectedStatusCode")}), "718422c109e54752acc0e26b7502e20f"), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableRow>(new global::Io.Cucumber.Messages.Types.TableRow[] {
-                                                                    new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(70, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(70, new System.Nullable<long>(9)), "8073"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(70, new System.Nullable<long>(16)), "shihtzu"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(70, new System.Nullable<long>(27)), "200")}), "563795635a087d5c89e31096a73e2f6d"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(54, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\"", null, null, "865b9f2fe36b3b5d9d23106a8f1a63e0"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(55, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "fb0477e0edbecc55ae35aea6c855e32c"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(56, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "I send a DELETE request to delete the pet using the same pet id", null, null, "ec89372db351665a8e108efa514be77a"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(57, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 200", null, null, "de5b13d3a789755ead9f5094be493627"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(58, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send another DELETE request to delete the pet using the same pet id", null, null, "ea981b5e67c6e9589f0c012fd2769b5b"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(59, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be 404", null, null, "54254bf8b5f5e95281d06cc470b72307")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[0]), "aa1cc74c9b669b56aea5023020d357b6")),
+                                new global::Io.Cucumber.Messages.Types.FeatureChild(null, null, new global::Io.Cucumber.Messages.Types.Scenario(new global::Io.Cucumber.Messages.Types.Location(63, new System.Nullable<long>(3)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[] {
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(62, new System.Nullable<long>(3)), "@post", "8157adb23d32195381092e129ada6cd0"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(62, new System.Nullable<long>(9)), "@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                                    new global::Io.Cucumber.Messages.Types.Tag(new global::Io.Cucumber.Messages.Types.Location(62, new System.Nullable<long>(14)), "@smoke", "ebbab2be2fc124548404de2479df0a71")}), "Scenario Outline", "Create pet using POST /pet and validate the correct response codes", "", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Step>(new global::Io.Cucumber.Messages.Types.Step[] {
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(64, new System.Nullable<long>(5)), "Given ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONTEXT, "a new pet with id <id> and name \"<name>\"", null, null, "ce0e87cbc5ef8a549e97d03690322c49"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(65, new System.Nullable<long>(5)), "When ", global::Io.Cucumber.Messages.Types.StepKeywordType.ACTION, "I send a POST request to create the pet", null, null, "322c5e9d3e4c99528da59ca50f4d6606"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(66, new System.Nullable<long>(5)), "Then ", global::Io.Cucumber.Messages.Types.StepKeywordType.OUTCOME, "the response status code should be <expectedStatusCode>", null, null, "118d5b2f36449656b05c503d924e98a2"),
+                                                    new global::Io.Cucumber.Messages.Types.Step(new global::Io.Cucumber.Messages.Types.Location(67, new System.Nullable<long>(5)), "And ", global::Io.Cucumber.Messages.Types.StepKeywordType.CONJUNCTION, "the response should contain pet id <id> and name \"<name>\"", null, null, "b24a0ec9fd23c458ac406cd90a27bd38")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Examples>(new global::Io.Cucumber.Messages.Types.Examples[] {
+                                                    new global::Io.Cucumber.Messages.Types.Examples(new global::Io.Cucumber.Messages.Types.Location(69, new System.Nullable<long>(5)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Tag>(new global::Io.Cucumber.Messages.Types.Tag[0]), "Examples", "", "", new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(70, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
+                                                                        new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(70, new System.Nullable<long>(9)), "id"),
+                                                                        new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(70, new System.Nullable<long>(16)), "name"),
+                                                                        new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(70, new System.Nullable<long>(27)), "expectedStatusCode")}), "fb0ac9e8a830be5087ef669a4e70e8c3"), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableRow>(new global::Io.Cucumber.Messages.Types.TableRow[] {
                                                                     new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(71, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(71, new System.Nullable<long>(9)), "9999"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(71, new System.Nullable<long>(16)), "poodle"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(71, new System.Nullable<long>(27)), "200")}), "39490a78ab60035092f4241a27ab915b"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(71, new System.Nullable<long>(9)), "8073"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(71, new System.Nullable<long>(16)), "shihtzu"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(71, new System.Nullable<long>(27)), "200")}), "05824b9086270a50a0c0d38b311b694a"),
                                                                     new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(72, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(72, new System.Nullable<long>(9)), "3434"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(72, new System.Nullable<long>(16)), "chowchow"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(72, new System.Nullable<long>(27)), "200")}), "97897b9dee808a5e87b6b104bdedb812"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(72, new System.Nullable<long>(9)), "9999"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(72, new System.Nullable<long>(16)), "poodle"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(72, new System.Nullable<long>(27)), "200")}), "15aff3ca90a3be509faddb4176cb1856"),
                                                                     new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(73, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(73, new System.Nullable<long>(9)), "6445"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(73, new System.Nullable<long>(16)), "beagle"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(73, new System.Nullable<long>(27)), "200")}), "734eb3813b0c0458911cdffe92aca54e"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(73, new System.Nullable<long>(9)), "3434"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(73, new System.Nullable<long>(16)), "chowchow"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(73, new System.Nullable<long>(27)), "200")}), "12840544d8560757aa1334e4ef312a25"),
                                                                     new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(74, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(74, new System.Nullable<long>(9)), "2324"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(74, new System.Nullable<long>(16)), "bulldog"),
-                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(74, new System.Nullable<long>(27)), "200")}), "57817bb2b4060155814126399ac9b3f5")}), "aa4d8b6cb7b50d56911b38acd4e85be8")}), "d27fbf000dae66539b5ea43f47eb4859"))})), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Comment>(new global::Io.Cucumber.Messages.Types.Comment[0]));
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(74, new System.Nullable<long>(9)), "6445"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(74, new System.Nullable<long>(16)), "beagle"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(74, new System.Nullable<long>(27)), "200")}), "562b37c3c1821854a89356d34a6952b0"),
+                                                                    new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(75, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(75, new System.Nullable<long>(9)), "2324"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(75, new System.Nullable<long>(16)), "bulldog"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(75, new System.Nullable<long>(27)), "200")}), "2591201669060455b4e3179db2d80d2b"),
+                                                                    new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(76, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(76, new System.Nullable<long>(9)), "1111"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(76, new System.Nullable<long>(16)), "lion"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(76, new System.Nullable<long>(27)), "200")}), "11bb8e3c2d3e75539c4b7d483e2bc015"),
+                                                                    new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(77, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(77, new System.Nullable<long>(9)), "2222"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(77, new System.Nullable<long>(16)), "tiger"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(77, new System.Nullable<long>(27)), "200")}), "88b7cd761ad4f759a68cf446ea488fec"),
+                                                                    new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(78, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(78, new System.Nullable<long>(9)), "3333"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(78, new System.Nullable<long>(16)), "bear"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(78, new System.Nullable<long>(27)), "200")}), "6d32251f3e5fec5184a5ded18533603b"),
+                                                                    new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(79, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(79, new System.Nullable<long>(9)), "4444"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(79, new System.Nullable<long>(16)), "wolf"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(79, new System.Nullable<long>(27)), "200")}), "28e98a1db18a73518b957a649f183307"),
+                                                                    new global::Io.Cucumber.Messages.Types.TableRow(new global::Io.Cucumber.Messages.Types.Location(80, new System.Nullable<long>(7)), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.TableCell>(new global::Io.Cucumber.Messages.Types.TableCell[] {
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(80, new System.Nullable<long>(9)), "5555"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(80, new System.Nullable<long>(16)), "fox"),
+                                                                                    new global::Io.Cucumber.Messages.Types.TableCell(new global::Io.Cucumber.Messages.Types.Location(80, new System.Nullable<long>(27)), "200")}), "85304e346c3cae5f93e338580dc45d80")}), "4120df5598a955568058b9c93daf0c61")}), "91221ee6e5329b58b7cf11c98bcf70a0"))})), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Comment>(new global::Io.Cucumber.Messages.Types.Comment[0]));
         }
         
         private static global::System.Collections.Generic.IEnumerable<Io.Cucumber.Messages.Types.Pickle> PicklesFunc()
         {
             return new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.Pickle>(new global::Io.Cucumber.Messages.Types.Pickle[] {
-                        new global::Io.Cucumber.Messages.Types.Pickle("082c608e5f7fb753ae19dee80aa14d9a", "Features/PetApi.feature", "Happy path CRUD for a single pet", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                        new global::Io.Cucumber.Messages.Types.Pickle("7e7d70b1cc475a5a8b7394156fe125fb", "Features/PetApi.feature", "Happy path CRUD for a single pet", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "21cb9e951bc9395e86b666da5e8a3592"}), "f92826e19da8be539587451db587c3f3", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
+                                                        "0e612d93dd3eca57b38d4a4b6a16e026"}), "e75d7db91afed751bb865bfd27d74d21", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "b96bcdb58f000452866ee79e0a969a34"}), "52b1fd3a83df615297f4b10770001b4d", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "376986eae659d55fa61a1591a5d6c33b"}), "dbcab693c0b6065a9c6915b574f920bd", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "8ec461b4323cda5295cd8534382342d7"}), "dd531f0509dd395b955105c8e1196182", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "c1f867dcb5e49a5aa662654d581b3fc7"}), "1ae1193148e2355794a3d1bb89653fec", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "f5b3bbd4e00d955498ce4d7880f4e419"}), "6ca2be4a18d833538f65d6d6e2a6474d", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"shihtzu\""),
+                                                        "84fbb3629d3ecf5f9fef6c6daa2cc349"}), "4d656c78c48d20598a3ae6c5237f02af", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"shihtzu\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "617c3efb93b94c5884505aa714e7ed3a"}), "31c46acb4c6b5059aacdf0ff16b24bf5", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a PUT request to update the pet name to \"bulldog\""),
+                                                        "f67ec1b0f38ab854ad66e791dee37618"}), "2052d32febe52852963b5ea59ae9480c", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a PUT request to update the pet name to \"bulldog\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "f2084742262ca857954a7ae49c028881"}), "1c8b6d298a37eb508e03b63e21bf3be8", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "e1ba4813bbde5b55a08fc73c34e114ca"}), "6c84cdb91679a456995b16a82edf071b", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "56b4eef5a81eb252aa8d8624f545277a"}), "9d6f10def7948159898e0b2a3a7fad2f", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"bulldog\""),
+                                                        "e9c2bfd85ef85d5f8d874f71c1418d4e"}), "d9635cc5c9f0d05e99570be98fa4efc3", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"bulldog\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "bf8ff8756062505a881d447cbccfcefe"}), "99949096df49fb5a94c43e3a2516cc54", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a GET request to retrieve the pet by id 8073"),
+                                                        "395703f957759752a7cdb97050ef1806"}), "e3b4f0e6a14f325faa1baf0eb6f0edf8", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a GET request to retrieve the pet by id 8073"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "d6c5e2902b21cf55b2f1bcad6449a3d3"}), "3103c7ea2d9e745883e736f0f5ef5c50", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "5eaf88db37e5685483c15f7676c43aae"}), "cd1927e95b698151aae97c48ef55aef2", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "9b94f0b01c1c405b8d9f9a9819ae520e"}), "81970a275dced35788444f2581cf8467", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"bulldog\""),
+                                                        "16fd3ec58b182f508a11705c5001b4a3"}), "38d39e12753e5159869f0ab9e6e4a1b3", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"bulldog\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "a747904e3b09095d8d6e5a4679c91cbf"}), "adb7dff89734b05192e7f19dcb840b8f", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a DELETE request to delete the pet with id 8073"),
+                                                        "71e9b08621033954b66f428fd4838996"}), "3f5c01450d840154863274b5c65d12f5", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a DELETE request to delete the pet using the same pet id"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "60e5ff54aaf4645bb9e962044688f261"}), "5576722db6710256a32ce34c6bbbecd6", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "f592bf34f080555092df33191b966992"}), "20df296698c4c356bf91ced780ace15d", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "a6752d144135085d8e89bdf15b2f371b"}), "1af27a315859dd538993f6d43d636db9", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the delete response should contain pet id 8073"),
+                                                        "e4353e61efb7c05ea542f0a844f68214"}), "7eed1c88d5ea565797d3ca9bcb0c9695", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the delete response should contain pet id 8073"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "d1955eee2211b8589b5ad1a5c90c0124"}), "d157b5fafab08b5fafe46795d47f2f7e", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a GET request to retrieve the pet by id 8073"),
+                                                        "6a1830273bcb5851a8d4b11a95fd7dd9"}), "b62ca2004b8b865c9f4c8a36eca2097d", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a GET request to retrieve the pet by id 8073"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "011d21f5db8ef454a552372961084df4"}), "b62db761df5c37598303c01d4911b235", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 404"),
+                                                        "ce15101562abdc599d52dff5c64828b1"}), "f06fc526e69656519d78dded83fedf97", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 404"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "653fed4582d2745899482af4da374b2e"}), "3f659d953e01625b89a122a893cd03b7", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain error message \"Pet not found\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@crud", "3595be22302e6d52b397d3698204f82b"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "f84fdd72b91a1953bf6d28bd3f3e47b5"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "425f8d22a5aad95398b8d0d672e48bfd")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "045b5ce3ad1f735dac83f321eeb8fe0c"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("7f2f697d030fdf59871f364f71f87999", "Features/PetApi.feature", "Create pet using POST /pet and response code should be 200", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "4526d31acb7d5855969ad587455890ef"}), "0504e04554ff705ba5ae69f73b0874a4", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain error message \"Pet not found\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@crud", "7e4bb77ca31dd95c9d9bf5e3fe406e97"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "ce8657c6382aeb54bfef5d2016929e6a"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "6ba0c2806db70352ac7ed7fbcb20e9d6")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "d04d4b113e0ecd5393397bc6b5836fda"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("da91be662de719569b368b879685da5e", "Features/PetApi.feature", "Create pet using POST /pet and response code should be 200", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "d5904c8ed90d345495afcf8c360e0e71"}), "f4141d594efe7e5ca51292236a7546ee", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
+                                                        "6f506ef44a422651b2459a92d01166b8"}), "d8b7357aa39d6f57ac882c0fa8cd483a", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "1b9e8ba2c946cb549c53348a06081a72"}), "287b4f5233f57750bbc649f6bff94dc2", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "4eb11f6b98d18255939ec2dcd23c2ff9"}), "263acdc0b24e6358a40a5593ebffabde", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "9342c756374583579e8f3e3b1be39a93"}), "4a46145c786100579979033395ff1ab3", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "881d03afaed0ce59864db30bdb8ac449"}), "bf81dc3444b177509898c00fc8dc8d0e", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "c3d9fb999db20d52b63b1f38e44bf82f"}), "caa15a90de92dc5f8083b073d2ac5035", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"shihtzu\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "1ce19e264d945a5295f5e0d046cd902e"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "424af7a73b71c0509cc6d2393cca25d6"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "bdfceabac363ec5c8cfe8b2eadb8c656")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "538af38fc7c486519a85e3330705d5ca"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("b9d225d289afbf5c9f3f3ae2450815b5", "Features/PetApi.feature", "Get pet using GET /pet/{petid} and response code should be 200", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "b48e2065fc12155b828d765fbbc4b818"}), "6346814affa49f5caa29f45901a2acd8", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"shihtzu\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "aedd8403025a2656a6e8698485a19e9e"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "2459a9e2dd857b50ae2db2eb64308864"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "1e301f471e3e9050883d919403d2f597")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "5db748fcf55c175ea43cd6fc17f48f31"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("7c08c4a47c91125bb831e82d6eb48909", "Features/PetApi.feature", "Get pet using GET /pet/{petid} and response code should be 200", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "1c597f6f19a8e35bb34a2d93b9f045a0"}), "b55ebd27c075975094ee662f90dd7337", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
+                                                        "5a4e3323b9b1fa51a8e5d483df3b22d8"}), "1c9f62397664c75aaf8b3666f3cd4d32", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "c70c83910d75d35a8f8423e276e07f50"}), "c957bd1977d9905ca277674bc8c3f259", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "8a7b3611c4398652bb6894af1bda5a43"}), "39c61d1ee877db5ea174f1f1e4a815af", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "2a7aecf0b7fb1d548195fde03d34a73a"}), "c870db931dc05e5dbff53e9c073ad7b2", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a GET request to retrieve the pet by id 8073"),
+                                                        "4860722b91f4bb55baa971fcf2d02e93"}), "10c2b106c08e595b96d0012cdf7f5a90", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a GET request to retrieve the pet by id 8073"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "7e8d69af7db67a5fb74548319db5ddb9"}), "38eeff03c9fdd75e82d60863af95df71", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "d2d73a026055ad528865faf446f5e68a"}), "f1cf6773dc652157b65237913d7b7a6e", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e1672038919c735aa23b409dd4a4a9b1"}), "4fb0124701ab0b5b8e3f05a30f47db4c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"shihtzu\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@get", "444894c92ab79d5ea95acec5d21110c6"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "124a93d414740751a996d58201c8108b"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "3268454190773c52b3b1ee2c95e1c022")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "dd688f1683ec4154b3c26834c45a2e89"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("6c435b7465d9335bb0cb3bcc99d598e5", "Features/PetApi.feature", "Delete pet using DELETE /pet/{petid} and response code should be 200", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "ef89281be440095890c4ce45887d084b"}), "5ec3ac1b50842d528f311e7652716782", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"shihtzu\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@get", "ed762b349b00225d91a38011df02368f"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "44aa0e665217b551a294d547d666a4fb"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "e2540e2b566cba5f9c16c069fdb511a4")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "a261d2bfbe149553bc339330171b5d19"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("16a327a9ce423158af14d3ffa4ea976d", "Features/PetApi.feature", "Delete pet using DELETE /pet/{petid} and response code should be 200", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "9ce7ede9bf879654828092535e25fbbd"}), "8a5c7328d6d20b5d94d029dbe862fb57", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
+                                                        "a27945a24a193852854572d6d2799560"}), "95efb0ed768af8548cd8d899405d0428", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e2abf6cb37a86f54a9187b34cb6e3c17"}), "72e1062af0774a52984d24f53675864b", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "a6534ef8b97d725fae826d10ab5022ea"}), "8e6b099c5f02bb5dbb8de4815a0379a8", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "1f961753f38a465ea5dfc487344ac2e1"}), "8848f6b1b2f1d359813ca3dd0ed820d5", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a DELETE request to delete the pet with id 8073"),
+                                                        "0b08c6570d9e005c975e8a77254b66ac"}), "0c6296ed4d6d895fbc56f6c9a6e58256", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a DELETE request to delete the pet using the same pet id"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "1581a5b8c5ecfa5ba93f724d800b9165"}), "f432d7618250475989fea2f5ed82b0b4", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "c18d59c828de0452bf437d83fef69daa"}), "c61bf59b0c079057a89dec614ccb0c95", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "9182d9d6be2f9153a3795f49b4024019"}), "0d37e8140436365e9853517f26996fa2", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the delete response should contain pet id 8073")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@delete", "a68e98361d552c50b028d4d02f990daf"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "f2d9d8e27680d05991ebeab5c7c06624"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "38b1f91d7357755080598bea99c0abcf")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "fac71868230cd05eb5d78f9ab11c98d1"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("d89c8cf3ee5d69588553838220dfdca1", "Features/PetApi.feature", "Delete pet twice using DELETE /pet/{petid} and response code of second delete sho" +
+                                                        "58122f1c870c1a50933eea89eeeab0ad"}), "1a96defa1a363654b89d791c938aae7c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the delete response should contain pet id 8073")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@delete", "960c3e6285abe855b786328b51b05e22"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "906126b0c64d6e519e044100dd97dea4"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "bdf26d602a2c1651a921e57e6569caae")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "8824c89f9195ef5a9a0147b9b0ac8566"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("97c2741ae2ec8f5995901727afac5143", "Features/PetApi.feature", "Delete pet twice using DELETE /pet/{petid} and response code of second delete sho" +
                                 "uld be 404", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "2b628210c98e4553a0f1b84ee47b38c3"}), "84bba14525ba0550ad1e0bddf9405503", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
+                                                        "865b9f2fe36b3b5d9d23106a8f1a63e0"}), "0fe86fd12ceaf3568d78b279e2d3e123", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "02463bd7f60a805c8779df3b4a55deed"}), "767451adf84ff95a864aaf4047a37015", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "fb0477e0edbecc55ae35aea6c855e32c"}), "07ceac2f84ba725cb6e8de2aa43d4a40", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "deeb67a0ddf3b85b97c2d82a60b4d0cc"}), "80ff2ef9382e1055981ed2fc26b5155c", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a DELETE request to delete the pet using the same pet id"),
+                                                        "ec89372db351665a8e108efa514be77a"}), "acd6077f35b46650b73f83f81e9b0920", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a DELETE request to delete the pet using the same pet id"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "ffb7e0735984b05295183453a4d57852"}), "939de61e66eccb5b880883d6820355a7", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a DELETE request to delete the pet using the same pet id"),
+                                                        "de5b13d3a789755ead9f5094be493627"}), "8ea0c9494f92c754a6adef6bcb5edeb7", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "644f115d7e66315a9bec85e8823d6443"}), "b7cda47cda7010518f7a29d7e6120503", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 404")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@delete", "5e5c94b62b504b50b924a24ecb42f27f"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "928347bbafd6995ab3b02504a1e7b749"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebd205095773585f93a99a32f05f2619")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "78f1cf80a9130d5898a58fc14035f800"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("205926c97ff04952a629bb2480c8f2fa", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "ea981b5e67c6e9589f0c012fd2769b5b"}), "8387e59a163f1b5abd2bfa26254c738f", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send another DELETE request to delete the pet using the same pet id"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e4cd9f7ca1fc0b539f8a4e713420c8cb",
-                                                        "563795635a087d5c89e31096a73e2f6d"}), "b3664ff7e1f74d52aa9fc6c17d8b302d", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
+                                                        "54254bf8b5f5e95281d06cc470b72307"}), "97a0a056c3294d5fb7012917bb5f5730", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 404")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@delete", "5d73eaf2118b6e578b27a18748d97268"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "518b5bea78258453b52d3b1f75696c17"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "a2e2fb9a7787055a85b33c0a95d59268")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "aa1cc74c9b669b56aea5023020d357b6"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("861f5f00ed472552808cfc4b6c7faaf6", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "d1cca6b5cb0d8e5ab1b709e610279a50",
-                                                        "563795635a087d5c89e31096a73e2f6d"}), "621a9a110030ac5c8efe159f49277e3e", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "05824b9086270a50a0c0d38b311b694a"}), "85f693a8d4a5f5578990b1d465fae06f", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 8073 and name \"shihtzu\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "a56e246f996f6a5799de17e772bc42c4",
-                                                        "563795635a087d5c89e31096a73e2f6d"}), "4ebf7c797be25e5bb7153bc2e2fb2bba", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "05824b9086270a50a0c0d38b311b694a"}), "7b6933a15370e651ab7930e183d14e4d", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e521f55b55ff105796fa2ff284f7518f",
-                                                        "563795635a087d5c89e31096a73e2f6d"}), "30ef84eee1275359b355d2a72668912f", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"shihtzu\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "74b9a76705c5bb5b96f11fedbd2e522d"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "3c6c130458353457803f42cffb92a3bb"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "cce7c3083721f250a50429ae99f74b2c")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "d27fbf000dae66539b5ea43f47eb4859",
-                                        "563795635a087d5c89e31096a73e2f6d"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("38021ff2582f6951b25c7fd62b1b9e4e", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "05824b9086270a50a0c0d38b311b694a"}), "96d29d1496118e5b8ec30a21dafcb06c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e4cd9f7ca1fc0b539f8a4e713420c8cb",
-                                                        "39490a78ab60035092f4241a27ab915b"}), "0e874776f1aba75384d8ec28a1fc4a96", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 9999 and name \"poodle\""),
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "05824b9086270a50a0c0d38b311b694a"}), "017f48c73c0c0b5e8de6be6e3a436430", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 8073 and name \"shihtzu\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "05824b9086270a50a0c0d38b311b694a"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("b666d5f7d42eac5f9ee8086f5185b061", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "d1cca6b5cb0d8e5ab1b709e610279a50",
-                                                        "39490a78ab60035092f4241a27ab915b"}), "fee10b5e4110545ead4341a19d8b036a", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "15aff3ca90a3be509faddb4176cb1856"}), "957de4702219cb5f859c57497e2fd5ec", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 9999 and name \"poodle\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "a56e246f996f6a5799de17e772bc42c4",
-                                                        "39490a78ab60035092f4241a27ab915b"}), "c0ba83caf4377652a4f56dff56f99afd", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "15aff3ca90a3be509faddb4176cb1856"}), "1046fafbcd29f35b8546257aba3c1ad9", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e521f55b55ff105796fa2ff284f7518f",
-                                                        "39490a78ab60035092f4241a27ab915b"}), "36f5fe75828eb559862603ac8e69b173", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 9999 and name \"poodle\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "74b9a76705c5bb5b96f11fedbd2e522d"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "3c6c130458353457803f42cffb92a3bb"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "cce7c3083721f250a50429ae99f74b2c")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "d27fbf000dae66539b5ea43f47eb4859",
-                                        "39490a78ab60035092f4241a27ab915b"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("69825f1c22edfd5f924bcee9ccdaf9e2", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "15aff3ca90a3be509faddb4176cb1856"}), "9e4ce5b2154d6353b7839f62b631c28a", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e4cd9f7ca1fc0b539f8a4e713420c8cb",
-                                                        "97897b9dee808a5e87b6b104bdedb812"}), "1d7d9ed2c359d25dbde755ac26474e8d", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 3434 and name \"chowchow\""),
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "15aff3ca90a3be509faddb4176cb1856"}), "185ff4860b7c895c89b9f9fde1fc59e8", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 9999 and name \"poodle\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "15aff3ca90a3be509faddb4176cb1856"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("50abcd8734dec753aa4bbf192de607c2", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "d1cca6b5cb0d8e5ab1b709e610279a50",
-                                                        "97897b9dee808a5e87b6b104bdedb812"}), "7d80687408d58656b187bea72006c9cb", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "12840544d8560757aa1334e4ef312a25"}), "766f3c2de533b95e8f3e95a6ac48d089", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 3434 and name \"chowchow\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "a56e246f996f6a5799de17e772bc42c4",
-                                                        "97897b9dee808a5e87b6b104bdedb812"}), "12a029cb2189645ea065de07253aee52", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "12840544d8560757aa1334e4ef312a25"}), "9e7f2d35f9239e5181b36d3de231d41f", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e521f55b55ff105796fa2ff284f7518f",
-                                                        "97897b9dee808a5e87b6b104bdedb812"}), "f1c996b01ea94e50908e5e8bcf467a1b", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 3434 and name \"chowchow\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "74b9a76705c5bb5b96f11fedbd2e522d"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "3c6c130458353457803f42cffb92a3bb"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "cce7c3083721f250a50429ae99f74b2c")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "d27fbf000dae66539b5ea43f47eb4859",
-                                        "97897b9dee808a5e87b6b104bdedb812"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("e0a2bf3afb62b253bcd42e8389b7126d", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "12840544d8560757aa1334e4ef312a25"}), "bfb17a00cbfb1456ad579d0085516e17", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e4cd9f7ca1fc0b539f8a4e713420c8cb",
-                                                        "734eb3813b0c0458911cdffe92aca54e"}), "cb4e0d364db7145b983b2cafe21e51a6", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 6445 and name \"beagle\""),
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "12840544d8560757aa1334e4ef312a25"}), "0d9be23cfed08957bdfc098fc3365104", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 3434 and name \"chowchow\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "12840544d8560757aa1334e4ef312a25"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("a66849d24bff015398dfb53dc0ef0454", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "d1cca6b5cb0d8e5ab1b709e610279a50",
-                                                        "734eb3813b0c0458911cdffe92aca54e"}), "354c64ede0a9d959afaeefb9fe764650", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "562b37c3c1821854a89356d34a6952b0"}), "175167bfe91b84538670829224b8dc42", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 6445 and name \"beagle\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "a56e246f996f6a5799de17e772bc42c4",
-                                                        "734eb3813b0c0458911cdffe92aca54e"}), "8016cc075503355995b792bad0ccb469", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "562b37c3c1821854a89356d34a6952b0"}), "4025a8c11f486a55bd73b66781b8c07e", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e521f55b55ff105796fa2ff284f7518f",
-                                                        "734eb3813b0c0458911cdffe92aca54e"}), "21591522fc02ed508dacd1349a9eadf4", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 6445 and name \"beagle\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "74b9a76705c5bb5b96f11fedbd2e522d"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "3c6c130458353457803f42cffb92a3bb"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "cce7c3083721f250a50429ae99f74b2c")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "d27fbf000dae66539b5ea43f47eb4859",
-                                        "734eb3813b0c0458911cdffe92aca54e"})),
-                        new global::Io.Cucumber.Messages.Types.Pickle("0476b72ff27bae55b7fc50bccaf13800", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "562b37c3c1821854a89356d34a6952b0"}), "b34e22d4d271015ab90854fd9ac5cc0c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e4cd9f7ca1fc0b539f8a4e713420c8cb",
-                                                        "57817bb2b4060155814126399ac9b3f5"}), "bf086918be3e7f58a353f24ef15660c8", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 2324 and name \"bulldog\""),
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "562b37c3c1821854a89356d34a6952b0"}), "4c56db9a3e4a795d8af0716455849515", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 6445 and name \"beagle\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "562b37c3c1821854a89356d34a6952b0"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("614768aecb624d549ec186309671b022", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "d1cca6b5cb0d8e5ab1b709e610279a50",
-                                                        "57817bb2b4060155814126399ac9b3f5"}), "066c13ae983e6956bd2fe0644ad6196a", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "2591201669060455b4e3179db2d80d2b"}), "33aaac356a08b2519505242c463d8107", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 2324 and name \"bulldog\""),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "a56e246f996f6a5799de17e772bc42c4",
-                                                        "57817bb2b4060155814126399ac9b3f5"}), "9f7c91fd9c6e705f9974f6fd8f399a61", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "2591201669060455b4e3179db2d80d2b"}), "42114a8e2d2c7f5f8c1f31c8ed5bc2c4", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
                                         new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
-                                                        "e521f55b55ff105796fa2ff284f7518f",
-                                                        "57817bb2b4060155814126399ac9b3f5"}), "2c0a2e034e8797569b82f62765a8597c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 2324 and name \"bulldog\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "74b9a76705c5bb5b96f11fedbd2e522d"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "3c6c130458353457803f42cffb92a3bb"),
-                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "cce7c3083721f250a50429ae99f74b2c")}), new System.Collections.Generic.List<string>(new string[] {
-                                        "d27fbf000dae66539b5ea43f47eb4859",
-                                        "57817bb2b4060155814126399ac9b3f5"}))});
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "2591201669060455b4e3179db2d80d2b"}), "7fde1de632d4d657b0d44947849b417c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "2591201669060455b4e3179db2d80d2b"}), "23217949de8f505488a8e2e9edbac628", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 2324 and name \"bulldog\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "2591201669060455b4e3179db2d80d2b"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("1bab31358f37255484d8e1ae0c666986", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "11bb8e3c2d3e75539c4b7d483e2bc015"}), "b8fd6a2fd2bd2f5f92983ec4ba6e0c4a", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 1111 and name \"lion\""),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "11bb8e3c2d3e75539c4b7d483e2bc015"}), "4851fadb0c32f75ca5cbe565eff8c37e", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "11bb8e3c2d3e75539c4b7d483e2bc015"}), "815f59f8f3cdae5b906943cd7847117c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "11bb8e3c2d3e75539c4b7d483e2bc015"}), "3f3b05610a38b35fad13cbf8df0c4c04", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 1111 and name \"lion\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "11bb8e3c2d3e75539c4b7d483e2bc015"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("76d53ccc9c044c55b9bb565030a88080", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "88b7cd761ad4f759a68cf446ea488fec"}), "bc9654ab9e0f7e59b32534e15e0f5992", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 2222 and name \"tiger\""),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "88b7cd761ad4f759a68cf446ea488fec"}), "a61ce86711dd5d5cbf0119ebedb8c519", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "88b7cd761ad4f759a68cf446ea488fec"}), "982b9b6586b4b2519ec62ac1cab56e6c", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "88b7cd761ad4f759a68cf446ea488fec"}), "67486f922aab9d5c88d2b092264fe578", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 2222 and name \"tiger\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "88b7cd761ad4f759a68cf446ea488fec"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("5f59047a1bd45557b3574ec98ff6ac32", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "6d32251f3e5fec5184a5ded18533603b"}), "9d364c1e2abd8e589cf9a4d4455a55d4", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 3333 and name \"bear\""),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "6d32251f3e5fec5184a5ded18533603b"}), "6edaa5d38482025cb85c3e38b490ce71", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "6d32251f3e5fec5184a5ded18533603b"}), "02d8d92651d35c549bc922e89b5e73fb", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "6d32251f3e5fec5184a5ded18533603b"}), "53d9a6f0e149b1548b7e231d5264b15e", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 3333 and name \"bear\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "6d32251f3e5fec5184a5ded18533603b"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("1e8ab1227d4e39558d399162efa42602", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "28e98a1db18a73518b957a649f183307"}), "c2d3ebfe622a9551bef4601e70133a51", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 4444 and name \"wolf\""),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "28e98a1db18a73518b957a649f183307"}), "453ee9e5d10aae52a90e41944fa6b4cb", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "28e98a1db18a73518b957a649f183307"}), "40052b8eb1f45e57a8dd37788877711d", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "28e98a1db18a73518b957a649f183307"}), "e083e0a5f204ed54a9fe0a638fe2dbe5", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 4444 and name \"wolf\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "28e98a1db18a73518b957a649f183307"})),
+                        new global::Io.Cucumber.Messages.Types.Pickle("2c9e401f1f7bfe528f0a33251d98c86a", "Features/PetApi.feature", "Create pet using POST /pet and validate the correct response codes", "en-US", new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleStep>(new global::Io.Cucumber.Messages.Types.PickleStep[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "ce0e87cbc5ef8a549e97d03690322c49",
+                                                        "85304e346c3cae5f93e338580dc45d80"}), "9be38d0ddc5d2a5eb6ef00fa4356a7fd", global::Io.Cucumber.Messages.Types.PickleStepType.CONTEXT, "a new pet with id 5555 and name \"fox\""),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "322c5e9d3e4c99528da59ca50f4d6606",
+                                                        "85304e346c3cae5f93e338580dc45d80"}), "7489012fb2d4c45ca3abb8335b5ccfa4", global::Io.Cucumber.Messages.Types.PickleStepType.ACTION, "I send a POST request to create the pet"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "118d5b2f36449656b05c503d924e98a2",
+                                                        "85304e346c3cae5f93e338580dc45d80"}), "eb758489b8cd9159b52f3a9e9e5a03ee", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response status code should be 200"),
+                                        new global::Io.Cucumber.Messages.Types.PickleStep(null, new System.Collections.Generic.List<string>(new string[] {
+                                                        "b24a0ec9fd23c458ac406cd90a27bd38",
+                                                        "85304e346c3cae5f93e338580dc45d80"}), "58a46b7f2f081f5e8d14117521d4c3e5", global::Io.Cucumber.Messages.Types.PickleStepType.OUTCOME, "the response should contain pet id 5555 and name \"fox\"")}), new System.Collections.Generic.List<global::Io.Cucumber.Messages.Types.PickleTag>(new global::Io.Cucumber.Messages.Types.PickleTag[] {
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@post", "8157adb23d32195381092e129ada6cd0"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@pet", "b79357cb15fea0579d1cda560ecbfc8d"),
+                                        new global::Io.Cucumber.Messages.Types.PickleTag("@smoke", "ebbab2be2fc124548404de2479df0a71")}), new System.Collections.Generic.List<string>(new string[] {
+                                        "91221ee6e5329b58b7cf11c98bcf70a0",
+                                        "85304e346c3cae5f93e338580dc45d80"}))});
         }
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
@@ -497,7 +614,7 @@ namespace PetApiTests.Features
     await testRunner.AndAsync("the response should contain pet id 8073 and name \"bulldog\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 21
-    await testRunner.WhenAsync("I send a DELETE request to delete the pet with id 8073", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+    await testRunner.WhenAsync("I send a DELETE request to delete the pet using the same pet id", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 22
     await testRunner.ThenAsync("the response status code should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -638,7 +755,7 @@ namespace PetApiTests.Features
     await testRunner.WhenAsync("I send a POST request to create the pet", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 48
-    await testRunner.AndAsync("I send a DELETE request to delete the pet with id 8073", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.AndAsync("I send a DELETE request to delete the pet using the same pet id", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 49
     await testRunner.ThenAsync("the response status code should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
@@ -688,9 +805,12 @@ namespace PetApiTests.Features
     await testRunner.AndAsync("I send a DELETE request to delete the pet using the same pet id", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 57
-    await testRunner.AndAsync("I send a DELETE request to delete the pet using the same pet id", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+    await testRunner.ThenAsync("the response status code should be 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
 #line 58
+    await testRunner.WhenAsync("I send another DELETE request to delete the pet using the same pet id", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 59
     await testRunner.ThenAsync("the response status code should be 404", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
@@ -707,6 +827,11 @@ namespace PetApiTests.Features
         [global::NUnit.Framework.TestCaseAttribute("3434", "chowchow", "200", "7", null)]
         [global::NUnit.Framework.TestCaseAttribute("6445", "beagle", "200", "8", null)]
         [global::NUnit.Framework.TestCaseAttribute("2324", "bulldog", "200", "9", null)]
+        [global::NUnit.Framework.TestCaseAttribute("1111", "lion", "200", "10", null)]
+        [global::NUnit.Framework.TestCaseAttribute("2222", "tiger", "200", "11", null)]
+        [global::NUnit.Framework.TestCaseAttribute("3333", "bear", "200", "12", null)]
+        [global::NUnit.Framework.TestCaseAttribute("4444", "wolf", "200", "13", null)]
+        [global::NUnit.Framework.TestCaseAttribute("5555", "fox", "200", "14", null)]
         public async global::System.Threading.Tasks.Task CreatePetUsingPOSTPetAndValidateTheCorrectResponseCodes(string id, string name, string expectedStatusCode, string @__pickleIndex, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -726,7 +851,7 @@ namespace PetApiTests.Features
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Create pet using POST /pet and validate the correct response codes", null, tagsOfScenario, argumentsOfScenario, featureTags, pickleIndex);
             string[] tagsOfRule = ((string[])(null));
             global::Reqnroll.RuleInfo ruleInfo = null;
-#line 62
+#line 63
   this.ScenarioInitialize(scenarioInfo, ruleInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -736,16 +861,16 @@ namespace PetApiTests.Features
             else
             {
                 await this.ScenarioStartAsync();
-#line 63
+#line 64
     await testRunner.GivenAsync(string.Format("a new pet with id {0} and name \"{1}\"", id, name), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 64
+#line 65
     await testRunner.WhenAsync("I send a POST request to create the pet", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 65
+#line 66
     await testRunner.ThenAsync(string.Format("the response status code should be {0}", expectedStatusCode), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 66
+#line 67
     await testRunner.AndAsync(string.Format("the response should contain pet id {0} and name \"{1}\"", id, name), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
