@@ -1,0 +1,15 @@
+{
+  "bindingCulture": {
+    "name": "en-US"
+  },
+  "generator": {
+    "allowDebugGeneratedFiles": false,
+    "skipParallelizableMarker": false
+  },
+  "runtime": {
+    "stopAtFirstError": false
+  },
+  "unitTestProvider": {
+    "name": "nunit"
+  }
+}
