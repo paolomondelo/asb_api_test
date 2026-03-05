@@ -1,15 +1,29 @@
 {
-  "[gherkin]": {
+  // Treat .feature files as "feature" language (used by Cucumber extensions)
+  "[feature]": {
     "editor.formatOnSave": false
   },
-  "reqnroll.bindingAssemblies": [
-    "${workspaceFolder}/bin/Debug/net8.0/PetApiTests.dll"
+  "files.associations": {
+    "*.feature": "feature"
+  },
+
+  // CucumberAutoComplete+ (for C# step navigation)
+  "cucumberautocomplete.steps": [
+    "**/StepDefinitions/**/*.cs"
   ],
-  "reqnroll.bindingSearchPattern": "**/*.cs",
-  "BDD-Guardian.StepDefinitionPaths": [
-    "${workspaceFolder}/StepDefinitions"
+  "cucumberautocomplete.syncfeatures": "**/Features/**/*.feature",
+  "cucumberautocomplete.strictGherkinCompletion": false,
+  "cucumberautocomplete.customParameters": [
+    { "parameter": "{int}",    "value": "\\d+" },
+    { "parameter": "{long}",   "value": "\\d+" },
+    { "parameter": "{string}", "value": "\".+\"" }
   ],
-  "BDD-Guardian.BindingPaths": [
-    "${workspaceFolder}/bin/Debug/net8.0"
+
+  // Official Cucumber extension (cucumber.cucumber-language-server)
+  "cucumber.glue": [
+    "**/StepDefinitions/**/*.cs"
+  ],
+  "cucumber.features": [
+    "**/Features/**/*.feature"
   ]
 }

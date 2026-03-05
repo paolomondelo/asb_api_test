@@ -12,6 +12,8 @@ public static class TestReport
         public required string Text { get; init; }
         public required string Status { get; set; }
         public string? ErrorMessage { get; set; }
+        public string Level { get; init; } = "Info";
+        public string? Details { get; init; }
     }
 
     private sealed class ScenarioResult
@@ -64,6 +66,29 @@ public static class TestReport
         string status,
         string? errorMessage)
     {
+        AddStep(scenarioTitle, keyword, text, status, errorMessage, "Info", null);
+    }
+
+    public static void AddStep(
+        string scenarioTitle,
+        string keyword,
+        string text,
+        string status,
+        string? errorMessage,
+        string level)
+    {
+        AddStep(scenarioTitle, keyword, text, status, errorMessage, level, null);
+    }
+
+    public static void AddStep(
+        string scenarioTitle,
+        string keyword,
+        string text,
+        string status,
+        string? errorMessage,
+        string level,
+        string? details)
+    {
         if (string.IsNullOrWhiteSpace(scenarioTitle))
         {
             return;
@@ -88,7 +113,9 @@ public static class TestReport
                 Keyword = keyword,
                 Text = text,
                 Status = status,
-                ErrorMessage = errorMessage
+                ErrorMessage = errorMessage,
+                Level = string.IsNullOrWhiteSpace(level) ? "Info" : level,
+                Details = details
             });
 
             if (string.Equals(status, "Failed", StringComparison.OrdinalIgnoreCase))
@@ -157,7 +184,12 @@ public static class TestReport
         sb.AppendLine("    .step-status { font-weight: 600; }");
         sb.AppendLine("    .step-status-passed { color: #22c55e; }");
         sb.AppendLine("    .step-status-failed { color: #f97373; }");
+        sb.AppendLine("    .log-level { display:inline-flex; align-items:center; padding:2px 8px; border-radius:999px; font-size:0.7rem; text-transform:uppercase; letter-spacing:.08em; background-color:#020617; border:1px solid #1e293b; color:#9ca3af; }");
+        sb.AppendLine("    .log-level-info { border-color: rgba(59,130,246,0.6); color:#93c5fd; }");
+        sb.AppendLine("    .log-level-warn { border-color: rgba(234,179,8,0.6); color:#facc15; }");
+        sb.AppendLine("    .log-level-error { border-color: rgba(248,113,113,0.6); color:#fca5a5; }");
         sb.AppendLine("    .error { color: #fca5a5; font-size: 0.78rem; margin-top: 4px; white-space: pre-wrap; }");
+        sb.AppendLine("    .details { margin-top: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 0.78rem; background-color: #020617; border-radius: 6px; padding: 6px 8px; border: 1px solid #111827; max-height: 220px; overflow: auto; white-space: pre-wrap; }");
         sb.AppendLine("    footer { padding: 12px 32px 24px; font-size: 0.75rem; color: #6b7280; border-top: 1px solid #111827; background-color: #020617; }");
         sb.AppendLine("    @media (max-width: 640px) { header, main, footer { padding-left: 16px; padding-right: 16px; } .scenario-header { flex-direction: column; align-items: flex-start; } }");
         sb.AppendLine("  </style>");
@@ -230,6 +262,7 @@ public static class TestReport
                 sb.AppendLine("            <th style=\"width:80px;\">Step</th>");
                 sb.AppendLine("            <th>Description</th>");
                 sb.AppendLine("            <th style=\"width:90px;\">Status</th>");
+                sb.AppendLine("            <th style=\"width:90px;\">Level</th>");
                 sb.AppendLine("          </tr>");
                 sb.AppendLine("        </thead>");
                 sb.AppendLine("        <tbody>");
@@ -239,6 +272,13 @@ public static class TestReport
                     var stepStatusClass = string.Equals(step.Status, "Passed", StringComparison.OrdinalIgnoreCase)
                         ? "step-status-passed"
                         : "step-status-failed";
+
+                    var level = step.Level ?? "Info";
+                    var levelClass = string.Equals(level, "Error", StringComparison.OrdinalIgnoreCase)
+                        ? "log-level-error"
+                        : string.Equals(level, "Warn", StringComparison.OrdinalIgnoreCase)
+                            ? "log-level-warn"
+                            : "log-level-info";
 
                     sb.AppendLine("          <tr>");
                     sb.AppendLine($"            <td>{Escape(step.Keyword)}</td>");
@@ -250,8 +290,14 @@ public static class TestReport
                         sb.AppendLine($"              <div class=\"error\">{Escape(step.ErrorMessage)}</div>");
                     }
 
+                    if (!string.IsNullOrWhiteSpace(step.Details))
+                    {
+                        sb.AppendLine($"              <div class=\"details\">{Escape(step.Details)}</div>");
+                    }
+
                     sb.AppendLine("            </td>");
                     sb.AppendLine($"            <td><span class=\"step-status {stepStatusClass}\">{Escape(step.Status)}</span></td>");
+                    sb.AppendLine($"            <td><span class=\"log-level {levelClass}\">{Escape(level)}</span></td>");
                     sb.AppendLine("          </tr>");
                 }
 
@@ -266,7 +312,7 @@ public static class TestReport
         sb.AppendLine("</main>");
 
         sb.AppendLine("<footer>");
-        sb.AppendLine("  <span>Pet API test suite &middot; HTML report generated by a custom Reqnroll/NUnit reporter.</span>");
+        sb.AppendLine("  <span>Pet API test suite &middot; HTML report generated by a custom BDD/NUnit reporter.</span>");
         sb.AppendLine("</footer>");
 
         sb.AppendLine("</body>");

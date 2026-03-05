@@ -4,11 +4,11 @@ using System.Text.Json;
 using NUnit.Framework;
 using PetApiTests.Models;
 using PetApiTests.ApiClients;
-using Reqnroll;
+using TechTalk.SpecFlow;
 
 namespace PetApiTests.StepDefinitions;
 
-[Binding]
+[Binding, Scope(Tag = "pet")]
 public class PetApiSteps : IDisposable
 {
     private readonly PetApiPage _petApiPage = new();
@@ -18,21 +18,21 @@ public class PetApiSteps : IDisposable
     private long _currentPetId;
     private string _currentPetName = string.Empty;
 
-    [Given(@"a new pet with id (.*) and name ""(.*)""")]
+    [Given("a new pet with id (.*) and name \"(.*)\"")]
     public void GivenANewPetWithIdAndName(long id, string name)
     {
         _currentPetId = id;
         _currentPetName = name;
     }
 
-    [When(@"I send a POST request to create the pet")]
+    [When("I send a POST request to create the pet")]
     public async Task WhenISendAPostRequestToCreateThePet()
     {
         _lastResponse = await _petApiPage.CreatePetAsync(_currentPetId, _currentPetName);
         await CapturePetOrErrorAsync();
     }
 
-    [When(@"I send a PUT request to update the pet name to ""(.*)""")]
+    [When("I send a PUT request to update the pet name to \"(.*)\"")]
     public async Task WhenISendAPutRequestToUpdateThePetNameTo(string newName)
     {
         _currentPetName = newName;
@@ -77,7 +77,7 @@ public class PetApiSteps : IDisposable
             $"Expected HTTP {expectedStatusCode} but got {(int)_lastResponse.StatusCode} ({_lastResponse.StatusCode}).");
     }
 
-    [Then(@"the response should contain pet id (.*) and name ""(.*)""")]
+    [Then("the response should contain pet id (.*) and name \"(.*)\"")]
     public void ThenTheResponseShouldContainPetIdAndName(long expectedId, string expectedName)
     {
         Assert.That(_lastPet, Is.Not.Null, "Pet response body was not available.");
@@ -96,7 +96,7 @@ public class PetApiSteps : IDisposable
             "Delete response message did not contain the expected id.");
     }
 
-    [Given(@"the pet is ""(.*)"" before deletion")]
+    [Given("the pet is \"(.*)\" before deletion")]
     public async Task GivenThePetIsStateBeforeDeletion(string state)
     {
         if (string.Equals(state, "existing", StringComparison.OrdinalIgnoreCase))
@@ -114,7 +114,7 @@ public class PetApiSteps : IDisposable
         }
     }
 
-    [Then(@"the response should contain error message ""(.*)""")]
+    [Then("the response should contain error message \"(.*)\"")]
     public void ThenTheResponseShouldContainErrorMessage(string expectedMessage)
     {
         Assert.That(_lastError, Is.Not.Null, "Error response body was not available.");
@@ -158,6 +158,45 @@ public class PetApiSteps : IDisposable
         {
             // If deserialization fails, keep _lastPet and _lastError as null.
         }
+    }
+
+    public async Task<string> GetLastResponseDetailsAsync()
+    {
+        if (_lastResponse is null)
+        {
+            return "No HTTP response was captured.";
+        }
+
+        var method = _lastResponse.RequestMessage?.Method.Method ?? "<unknown>";
+        var uri = _lastResponse.RequestMessage?.RequestUri;
+        var endpoint = uri is null
+            ? "<unknown>"
+            : (string.IsNullOrEmpty(uri.PathAndQuery) ? uri.ToString() : uri.PathAndQuery);
+
+        var statusCode = (int)_lastResponse.StatusCode;
+        var reasonPhrase = _lastResponse.ReasonPhrase ?? string.Empty;
+
+        var headers = string.Join(
+            "\n",
+            _lastResponse.Headers.Select(h => $"{h.Key}: {string.Join(", ", h.Value)}"));
+
+        var contentHeaders = _lastResponse.Content?.Headers is null
+            ? string.Empty
+            : string.Join(
+                "\n",
+                _lastResponse.Content.Headers.Select(h => $"{h.Key}: {string.Join(", ", h.Value)}"));
+
+        var body = _lastResponse.Content is null
+            ? "<no content>"
+            : await _lastResponse.Content.ReadAsStringAsync();
+
+        return
+            $"Request: {method} {endpoint}\n" +
+            $"Status: {statusCode} ({reasonPhrase})\n" +
+            $"Headers:\n{headers}\n" +
+            (string.IsNullOrWhiteSpace(contentHeaders) ? string.Empty : $"Content headers:\n{contentHeaders}\n") +
+            "\nBody:\n" +
+            body;
     }
 
     public void Dispose()

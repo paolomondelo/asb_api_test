@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build (required for step definition resolution)",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "PetApiTests.csproj", "-c", "Debug"],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "silent" },
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

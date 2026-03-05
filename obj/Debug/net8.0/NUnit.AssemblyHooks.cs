@@ -3,27 +3,30 @@
 
 using System.CodeDom.Compiler;
 using System.Diagnostics;
+using global::NUnit.Framework;
+using global::TechTalk.SpecFlow;
 using global::System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 
-[GeneratedCode("Reqnroll", "3.0.0")]
-[global::NUnit.Framework.SetUpFixture]
-public static class PetApiTests_NUnitAssemblyHooks
+[GeneratedCode("SpecFlow", "3.9.74")]
+[SetUpFixture]
+public class PetApiTests_NUnitAssemblyHooks
 {
-    [global::NUnit.Framework.OneTimeSetUp]
+    [OneTimeSetUp]
     [MethodImpl(MethodImplOptions.NoInlining)]
-    public static async Task AssemblyInitializeAsync()
+    public void AssemblyInitialize()
     {
         var currentAssembly = typeof(PetApiTests_NUnitAssemblyHooks).Assembly;
-        await global::Reqnroll.TestRunnerManager.OnTestRunStartAsync(currentAssembly);
+
+        TestRunnerManager.OnTestRunStart(currentAssembly);
     }
 
-    [global::NUnit.Framework.OneTimeTearDown]
+    [OneTimeTearDown]
     [MethodImpl(MethodImplOptions.NoInlining)]
-    public static async ValueTask AssemblyCleanupAsync()
+    public void AssemblyCleanup()
     {
         var currentAssembly = typeof(PetApiTests_NUnitAssemblyHooks).Assembly;
-        await global::Reqnroll.TestRunnerManager.OnTestRunEndAsync(currentAssembly);
+
+        TestRunnerManager.OnTestRunEnd(currentAssembly);
     }
 }
 #pragma warning restore

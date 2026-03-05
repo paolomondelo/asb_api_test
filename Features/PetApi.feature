@@ -1,5 +1,5 @@
 Feature: Pet API CRUD
-  In order to manage pets in the store
+  To manage pets in the store
   As an API tester
   I want to create, update, get and delete a pet
 
@@ -78,6 +78,8 @@ Feature: Pet API CRUD
       | 3333 | bear     | 200                |
       | 4444 | wolf     | 200                |
       | 5555 | fox      | 200                |
+
+
  
  
 
